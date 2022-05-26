@@ -39,7 +39,7 @@ public class AddressBookController {
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/update/{id}")
     public ResponseEntity<ResponseDTO> updateAddressBookData(@PathVariable int id, @RequestBody AddressBookDTO addressBookDTO) {
         AddressBookData addressBookData = iAddressBookService.updateAddressBookData(id, addressBookDTO);
         ResponseDTO responseDTO = new ResponseDTO("updated Addressbook data succesfully", addressBookData);
