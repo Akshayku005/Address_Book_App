@@ -12,7 +12,6 @@ import javax.persistence.Id;
 
 @Entity
 public @Data class AddressBookData {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
