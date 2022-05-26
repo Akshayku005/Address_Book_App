@@ -12,4 +12,13 @@ public @Data class AddressBookDTO {
     private String state;
     private long zipcode;
 
+    public AddressBookDTO(String fName, String lName, String phonenumber, String email, String city, String state, long zipcode) {
+        this.fName = fName;
+        this.lName = lName;
+        this.phonenumber = phonenumber;
+        this.email = email;
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
+    }
 }
