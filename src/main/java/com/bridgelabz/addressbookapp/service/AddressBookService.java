@@ -4,11 +4,12 @@ package com.bridgelabz.addressbookapp.service;
 
 import com.bridgelabz.addressbookapp.dto.AddressBookDTO;
 import com.bridgelabz.addressbookapp.model.AddressBookData;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Service
 public class AddressBookService implements IAddressBookService {
 
     private List<AddressBookData> addressBookDataList=new ArrayList<>();

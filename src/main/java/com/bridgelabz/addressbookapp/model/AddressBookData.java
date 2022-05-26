@@ -30,9 +30,6 @@ public class AddressBookData {
 
     private long zipcode;
 
-    public AddressBookData() {
-
-    }
 
     public int getid() {
         return id;
@@ -96,6 +93,9 @@ public class AddressBookData {
 
     public void setZipcode(long zipcode) {
         this.zipcode = zipcode;
+    }
+    public AddressBookData() {
+
     }
 
     public AddressBookData(int id, AddressBookDTO addressBookDTO) {
