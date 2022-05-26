@@ -26,6 +26,7 @@ public @Data class AddressBookData {
     private String email;
 
     private String city;
+    private String address;
 
     private String state;
 
@@ -42,6 +43,7 @@ public @Data class AddressBookData {
         this.phonenumber = addressBookDTO.getPhonenumber();
         this.email = addressBookDTO.getEmail();
         this.city = addressBookDTO.getCity();
+        this.address=addressBookDTO.getAddress();
         this.state = addressBookDTO.getState();
         this.zipcode = addressBookDTO.getZipcode();
     }
