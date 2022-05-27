@@ -3,6 +3,7 @@ package com.bridgelabz.addressbookapp.dto;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
@@ -22,7 +23,7 @@ public @Data class AddressBookDTO {
     @Pattern(regexp = "^[A-Z]{1,}[a-z]{3,}$", message = "City name should start with uppercase and having atleast 4 characters!")
     private String city;
 
-    @NotEmpty(message = "Please enter your address !!")
+    @NotBlank(message = "Please enter your address !!")
     private String address;
     @Pattern(regexp = "^[A-Z]{1,}[a-z]{1,}$", message = "State name should start with uppercase and having atleast 2 characters!")
     private String state;
