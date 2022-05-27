@@ -3,6 +3,7 @@ package com.bridgelabz.addressbookapp.controller;
 import com.bridgelabz.addressbookapp.dto.AddressBookDTO;
 import com.bridgelabz.addressbookapp.dto.ResponseDTO;
 import com.bridgelabz.addressbookapp.model.AddressBookData;
+import com.bridgelabz.addressbookapp.service.AddressBookService;
 import com.bridgelabz.addressbookapp.service.IAddressBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,6 +31,14 @@ public class AddressBookController {
     public ResponseEntity<ResponseDTO> getAddressbookData(@PathVariable int id) {
         AddressBookData addressBookData = iAddressBookService.getAddressBookDataById(id);
         ResponseDTO responseDTO = new ResponseDTO("Get call Success", addressBookData);
+        return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
+    }
+
+    @GetMapping("/get/{city}")
+    public ResponseEntity<ResponseDTO> getAddressBookbyCity(@PathVariable("city") String city){
+        List<AddressBookData> addressBookList = null;
+        addressBookList = iAddressBookService.getAddressBookByCity(city);
+        ResponseDTO responseDTO = new ResponseDTO("Get call search by city is successful!", addressBookList);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
 
