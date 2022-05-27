@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import javax.validation.Valid;
 import java.util.List;
 
@@ -34,21 +35,35 @@ public class AddressBookController {
     }
 
     @GetMapping("/getcity/{city}")
-    public ResponseEntity<ResponseDTO> getAddressBookByCity(@PathVariable("city") String city){
+    public ResponseEntity<ResponseDTO> getAddressBookByCity(@PathVariable("city") String city) {
         List<AddressBookData> addressBookList = null;
         addressBookList = iAddressBookService.getAddressBookByCity(city);
         ResponseDTO responseDTO = new ResponseDTO("Get call search by city is successful!", addressBookList);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
 
+@GetMapping("/get/sortbycity")
+    public ResponseEntity<ResponseDTO> sortByCity() {
+        List<AddressBookData> addressBookList = null;
+        addressBookList = iAddressBookService.sortAddressBookByCity();
+        ResponseDTO responseDTO = new ResponseDTO("Sort by city call is successful! ", addressBookList);
+        return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
+    }
+
     @GetMapping("/getstate/{state}")
-    public ResponseEntity<ResponseDTO>getAddressBookByState(@PathVariable("state") String state){
+    public ResponseEntity<ResponseDTO> getAddressBookByState(@PathVariable("state") String state) {
         List<AddressBookData> addressBookList = null;
         addressBookList = iAddressBookService.getAddressBookByState(state);
         ResponseDTO responseDTO = new ResponseDTO("Get call search by state is successful!", addressBookList);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
-
+    @GetMapping("/get/sortbystate")
+    public ResponseEntity<ResponseDTO> sortByState() {
+        List<AddressBookData> addressBookList = null;
+        addressBookList = iAddressBookService.sortAddressBookByCity();
+        ResponseDTO responseDTO = new ResponseDTO("Sort by state call is successful! ", addressBookList);
+        return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
+    }
 
     @PostMapping("/create")
     public ResponseEntity<ResponseDTO> addAddressBookData(@Valid @RequestBody AddressBookDTO addressBookDTO) {

@@ -26,7 +26,7 @@ public class AddressBookService implements IAddressBookService {
     @Override
     public AddressBookData getAddressBookDataById(int id) {
         return addressBookRepository.findById(id)
-                .orElseThrow( () ->
+                .orElseThrow(() ->
                         new AddressBookCustomException("AddressBook with this id " + id + " doest not exists!"));
     }
 
@@ -36,16 +36,25 @@ public class AddressBookService implements IAddressBookService {
     }
 
     @Override
+    public List<AddressBookData> sortAddressBookByCity() {
+        return addressBookRepository.sortByCity();
+    }
+
+    @Override
     public List<AddressBookData> getAddressBookByState(String state) {
         return addressBookRepository.findAddressBookByState(state);
     }
 
+    @Override
+    public List<AddressBookData> sortAddressBookByState() {
+        return addressBookRepository.sortByState();
+    }
 
     @Override
     public AddressBookData createAddressBookData(AddressBookDTO addressBookDTO) {
-        AddressBookData addressBookData =null;
+        AddressBookData addressBookData = null;
         addressBookData = new AddressBookData(addressBookDTO);
-        log.debug("AddressBook Data:"+addressBookData.toString());
+        log.debug("AddressBook Data:" + addressBookData.toString());
         return addressBookRepository.save(addressBookData);
     }
 

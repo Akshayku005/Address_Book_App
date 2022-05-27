@@ -12,4 +12,8 @@ public interface AddressBookRepository extends JpaRepository<AddressBookData, In
 
     @Query(value = "select *from address_book_table where state= :state", nativeQuery = true)
     List<AddressBookData> findAddressBookByState(String state);
+    @Query(value = "select *from address_book_table order by city asc", nativeQuery = true)
+    List<AddressBookData> sortByCity();
+    @Query(value = "select *from address_book_table order by state asc", nativeQuery = true)
+    List<AddressBookData> sortByState();
 }
