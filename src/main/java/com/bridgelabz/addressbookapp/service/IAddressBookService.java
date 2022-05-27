@@ -8,6 +8,8 @@ public interface IAddressBookService {
     List<AddressBookData> getAddressBookData();
     AddressBookData getAddressBookDataById(int id);
     public List<AddressBookData> getAddressBookByCity(String city);
+
+    public List<AddressBookData>getAddressBookByState(String state);
     AddressBookData createAddressBookData(AddressBookDTO addressbookDTO);
     AddressBookData updateAddressBookData( int id, AddressBookDTO addressBookDTO);
 

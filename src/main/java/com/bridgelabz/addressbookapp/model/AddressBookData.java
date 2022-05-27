@@ -16,7 +16,6 @@ public @Data class AddressBookData {
     private int id;
     @Column(name = "name")
     private String fName;
-
     private String lName;
 
     private String phonenumber;
