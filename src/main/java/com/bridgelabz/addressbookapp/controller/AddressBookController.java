@@ -34,7 +34,7 @@ public class AddressBookController {
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
 
-    @GetMapping("/get/{city}")
+    @GetMapping("/getcity/{city}")
     public ResponseEntity<ResponseDTO> getAddressBookbyCity(@PathVariable("city") String city){
         List<AddressBookData> addressBookList = null;
         addressBookList = iAddressBookService.getAddressBookByCity(city);
