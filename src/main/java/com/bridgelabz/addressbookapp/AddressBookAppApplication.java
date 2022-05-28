@@ -18,5 +18,4 @@ public class AddressBookAppApplication {
                 context.getEnvironment().getProperty("spring.datasource.username"));
         System.out.println("Welcome to AddressBook App !!!");
     }
-
 }

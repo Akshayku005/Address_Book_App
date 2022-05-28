@@ -19,27 +19,22 @@ import java.util.stream.Collectors;
 public class AddressBookExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ResponseDTO> handleMethodArgumentNotValidException(
-            MethodArgumentNotValidException exception){
+    public ResponseEntity<ResponseDTO> handleMethodArgumentNotValidException(MethodArgumentNotValidException exception) {
         List<ObjectError> errorList = exception.getBindingResult().getAllErrors();
         List<String> errorMessage = errorList.stream().map(objError -> objError.getDefaultMessage()).collect(Collectors.toList());
         ResponseDTO responseDTO = new ResponseDTO("Exception while processing Rest Request!", errorMessage);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.BAD_REQUEST);
     }
+
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<ResponseDTO> handleMessageNotReadableException(
-            HttpMessageNotReadableException exception){
+    public ResponseEntity<ResponseDTO> handleMessageNotReadableException(HttpMessageNotReadableException exception) {
         log.error("Invalid Format", exception);
         ResponseDTO responseDTO = new ResponseDTO("Exception while processing Rest Request!", "Format is incorrect!");
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.BAD_REQUEST);
     }
-    @ExceptionHandler(AddressBookGlobalException.class)
-    public ResponseEntity<ResponseDTO> handleGlobalException(Exception exception, Object body, HttpHeaders headers, HttpStatus status, WebRequest request){
-        ResponseDTO responseDTO = new ResponseDTO("Exception while processing Rest Request!!!", exception.getMessage());
-        return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.BAD_REQUEST);
-    }
+
     @ExceptionHandler(AddressBookCustomException.class)
-    public ResponseEntity<ResponseDTO> handleAddressBookCustomException(AddressBookCustomException exception){
+    public ResponseEntity<ResponseDTO> handleAddressBookCustomException(AddressBookCustomException exception) {
         ResponseDTO responseDTO = new ResponseDTO("Exception while processing Rest Request!!", exception.getMessage());
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.BAD_REQUEST);
     }

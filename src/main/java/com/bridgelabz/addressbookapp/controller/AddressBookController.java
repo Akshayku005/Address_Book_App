@@ -20,7 +20,7 @@ public class AddressBookController {
     @Autowired
     private IAddressBookService iAddressBookService;
 
-    @RequestMapping("/get")
+    @GetMapping("/get")
     public ResponseEntity<ResponseDTO> getAddressbookData() {
         List<AddressBookData> addressBookData = iAddressBookService.getAddressBookData();
         ResponseDTO responseDTO = new ResponseDTO("Get call Success", addressBookData);
@@ -41,10 +41,9 @@ public class AddressBookController {
         ResponseDTO responseDTO = new ResponseDTO("Get call search by city is successful!", addressBookList);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
-
 @GetMapping("/get/sortbycity")
     public ResponseEntity<ResponseDTO> sortByCity() {
-        List<AddressBookData> addressBookList = null;
+        List<AddressBookData> addressBookList = null ;
         addressBookList = iAddressBookService.sortAddressBookByCity();
         ResponseDTO responseDTO = new ResponseDTO("Sort by city call is successful! ", addressBookList);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);

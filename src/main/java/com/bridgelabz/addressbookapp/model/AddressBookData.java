@@ -27,7 +27,7 @@ public @Data class AddressBookData {
 
     private String state;
 
-    private long zipcode;
+    private String zipcode;
 
     public AddressBookData() {
 

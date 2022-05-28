@@ -52,10 +52,10 @@ public class AddressBookService implements IAddressBookService {
 
     @Override
     public AddressBookData createAddressBookData(AddressBookDTO addressBookDTO) {
-        AddressBookData addressBookData = null;
-        addressBookData = new AddressBookData(addressBookDTO);
-        log.debug("AddressBook Data:" + addressBookData.toString());
-        return addressBookRepository.save(addressBookData);
+        AddressBookData addressbookData = null;
+        addressbookData = new AddressBookData(addressBookDTO);
+        log.debug("AddressbookData: "+addressbookData.toString());
+        return addressBookRepository.save(addressbookData);
     }
 
     @Override
