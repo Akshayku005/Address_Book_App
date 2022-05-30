@@ -54,7 +54,7 @@ public class AddressBookService implements IAddressBookService {
     public AddressBookData createAddressBookData(AddressBookDTO addressBookDTO) {
         AddressBookData addressbookData = null;
         addressbookData = new AddressBookData(addressBookDTO);
-        log.debug("AddressbookData: "+addressbookData.toString());
+        log.debug("AddressbookData: " + addressbookData.toString());
         return addressBookRepository.save(addressbookData);
     }
 
